@@ -171,7 +171,7 @@ def main():
             print("\nGenerating all concrete mixes (1000 rows each)...")
             for mix in ['M10', 'M15', 'M20', 'M25', 'M30', 'M35', 'M40', 'M45']:
                 df = generate_concrete_data(mix, num_rows=1000)
-                filename = f"Concrete_{mix}.xlsx"
+                filename = f"{mix}.xlsx"
                 save_excel(df, filename)
             print("\n✓ All concrete mixes generated successfully!")
         
@@ -185,7 +185,7 @@ def main():
                 
                 print(f"\nGenerating {mix} data ({num_rows} rows)...")
                 df = generate_concrete_data(mix, num_rows=num_rows)
-                filename = f"Concrete_{mix}.xlsx"
+                filename = f"{mix}.xlsx"
                 save_excel(df, filename)
             else:
                 print("✗ Invalid mix type!")
@@ -197,11 +197,11 @@ def main():
             
             print(f"\nGenerating Mortar 1:4 data ({num_rows} rows)...")
             df_14 = generate_mortar_data('1:4', num_rows=num_rows)
-            save_excel(df_14, "Mortar_1_4.xlsx")
+            save_excel(df_14, "1_4.xlsx")
             
             print(f"Generating Mortar 1:6 data ({num_rows} rows)...")
             df_16 = generate_mortar_data('1:6', num_rows=num_rows)
-            save_excel(df_16, "Mortar_1_6.xlsx")
+            save_excel(df_16, "1_6.xlsx")
             
             print("\n✓ Mortar data generated successfully!")
         

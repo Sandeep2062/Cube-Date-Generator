@@ -47,14 +47,14 @@ python data_generator.py
 Generated files are saved in the `generated_data/` folder:
 
 **Concrete Files:**
-- `Concrete_M10.xlsx` (8.100-8.300 weight range)
-- `Concrete_M15.xlsx` (8.100-8.300 weight range)
-- `Concrete_M20.xlsx` (8.100-8.300 weight range)
-- `Concrete_M25.xlsx` (8.100-8.350 weight range)
-- `Concrete_M30.xlsx` (8.100-8.350 weight range)
-- `Concrete_M35.xlsx` (8.100-8.350 weight range)
-- `Concrete_M40.xlsx` (8.100-8.350 weight range)
-- `Concrete_M45.xlsx` (8.100-8.350 weight range)
+- `M10.xlsx` (8.100-8.300 weight range)
+- `M15.xlsx` (8.100-8.300 weight range)
+- `M20.xlsx` (8.100-8.300 weight range)
+- `M25.xlsx` (8.100-8.350 weight range)
+- `M30.xlsx` (8.100-8.350 weight range)
+- `M35.xlsx` (8.100-8.350 weight range)
+- `M40.xlsx` (8.100-8.350 weight range)
+- `M45.xlsx` (8.100-8.350 weight range)
 
 **Mortar Files:**
 - `Mortar_1_4.xlsx` (1:4 mortar ratio)
@@ -62,7 +62,7 @@ Generated files are saved in the `generated_data/` folder:
 
 ## Data Ranges
 
-### Concrete Mixes (Weight in kg, Strength in MPa)
+### Concrete Mixes (Weight in kg, Strength in kN)
 
 | Mix  | Weight Range | 7-Day Strength | 28-Day Strength |
 |------|-------------|----------------|-----------------|
@@ -79,13 +79,13 @@ Generated files are saved in the `generated_data/` folder:
 
 **1:4 Mortar:**
 - Weight: 0.800-0.835 kg
-- 7-Day Strength: 25.20-33.90 MPa
-- 28-Day Strength: 40.60-50.10 MPa
+- 7-Day Strength: 25.20-33.90 kN
+- 28-Day Strength: 40.60-50.10 kN
 
 **1:6 Mortar:**
 - Weight: 0.800-0.835 kg
-- 7-Day Strength: 15.20-25.00 MPa
-- 28-Day Strength: 25.20-33.90 MPa
+- 7-Day Strength: 15.20-25.00 kN
+- 28-Day Strength: 25.20-33.90 kN
 
 ## Excel File Format
 
@@ -167,5 +167,5 @@ Free to use and modify for testing purposes.
 
 ---
 
-**Version:** 1.0  
+**Version:** 1.1  
 **Last Updated:** January 2026

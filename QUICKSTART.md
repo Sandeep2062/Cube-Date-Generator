@@ -169,6 +169,6 @@ pyinstaller --onefile --console data_generator.py
 
 ---
 
-**Version:** 1.0  
+**Version:** 1.1  
 **Status:** ✓ Ready to Use  
 **Date:** January 2026

@@ -1,0 +1,33 @@
+# Generated data files (large, regeneratable)
+generated_data/
+*.xlsx
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual environment
+.env

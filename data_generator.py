@@ -3,8 +3,8 @@ import numpy as np
 import os
 from datetime import datetime
 
-def generate_unique_values(min_val, max_val, count, decimals=2, spacing=None):
-    """Generate unique random values within range with optional spacing"""
+def generate_unique_values(min_val, max_val, count, decimals=2, spacing=None, min_gap=0.0):
+    """Generate unique random values within range with optional spacing and minimum gap"""
     values = []
     attempts = 0
     max_attempts = 1000
@@ -13,14 +13,14 @@ def generate_unique_values(min_val, max_val, count, decimals=2, spacing=None):
         # Default behavior - fill range normally
         while len(values) < count and attempts < max_attempts:
             val = round(np.random.uniform(min_val, max_val), decimals)
-            if val not in values:
+            if val not in values and all(abs(val - v) >= min_gap for v in values):
                 values.append(val)
             attempts += 1
         
         if len(values) < count:
             while len(values) < count:
                 val = values[-1] + round(np.random.uniform(0.001, 0.009), 3)
-                if min_val <= val <= max_val and val not in values:
+                if min_val <= val <= max_val and val not in values and all(abs(val - v) >= min_gap for v in values):
                     values.append(round(val, decimals))
     else:
         # With spacing - spread values more across range
@@ -34,12 +34,12 @@ def generate_unique_values(min_val, max_val, count, decimals=2, spacing=None):
             attempts = 0
             while attempts < 100:
                 val = round(np.random.uniform(segment_min, segment_max), decimals)
-                if val not in values:
+                if val not in values and all(abs(val - v) >= min_gap for v in values):
                     values.append(val)
                     break
                 attempts += 1
     
-    return sorted(values[:count])
+    return values[:count]
 
 def generate_concrete_data(mix_type, num_rows=1000):
     """Generate concrete cube weight and strength data"""
@@ -49,11 +49,11 @@ def generate_concrete_data(mix_type, num_rows=1000):
         'M10': (8.100, 8.300),
         'M15': (8.100, 8.300),
         'M20': (8.100, 8.300),
-        'M25': (8.100, 8.350),
+        'M25': (8.180, 8.350),
         'M30': (8.100, 8.350),
         'M35': (8.100, 8.350),
         'M40': (8.100, 8.350),
-        'M45': (8.100, 8.350),
+        'M45': (8.200, 8.400),
     }
     
     strength_7d_ranges = {
@@ -86,7 +86,7 @@ def generate_concrete_data(mix_type, num_rows=1000):
         
         # Generate weight values (6 different values)
         weight_min, weight_max = weight_ranges[mix_type]
-        weights = generate_unique_values(weight_min, weight_max, 6, decimals=3)
+        weights = generate_unique_values(weight_min, weight_max, 6, decimals=3, min_gap=0.015)
         
         # Generate 7-day strength values (3 different values) - WITH MORE SPACING
         str_7d_min, str_7d_max = strength_7d_ranges[mix_type]

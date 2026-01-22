@@ -167,5 +167,5 @@ Free to use and modify for testing purposes.
 
 ---
 
-**Version:** 1.2  
+**Version:** 1.3  
 **Last Updated:** January 2026

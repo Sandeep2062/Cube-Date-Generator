@@ -1,4 +1,4 @@
-# Data Generator for Weight & Strength Testing
+# Cube Data Generator for Weight & Strength Testing
 
 Generate synthetic test data for concrete and mortar cube testing with randomized weight and strength values.
 
@@ -27,6 +27,19 @@ pip install pandas openpyxl numpy
 pip install pyinstaller
 ```
 
+### Quick Start
+
+For Windows users:
+```cmd
+run.bat
+```
+
+For Linux/Mac users:
+```bash
+chmod +x run.sh
+./run.sh
+```
+
 ## Usage
 
 ### Running as Python Script
@@ -41,6 +54,16 @@ python data_generator.py
 2. **Generate Single Concrete Mix** - Choose specific mix (M10-M45) with custom row count
 3. **Generate Mortar Data** - Creates 1:4 and 1:6 mortar data
 4. **Exit** - Close the program
+
+### Previewing Generated Data
+
+To preview and verify the generated data:
+
+```bash
+python preview_data.py
+```
+
+This will display a summary of all generated Excel files with sample rows and value ranges.
 
 ### Output Files
 
@@ -72,8 +95,8 @@ Generated files are saved in the `generated_data/` folder:
 | M25  | 8.10-8.35   | 442.10-475.10  | 660.10-700.10   |
 | M30  | 8.10-8.35   | 518.10-560.10  | 770.10-811.10   |
 | M35  | 8.10-8.35   | 595.10-632.80  | 880.90-920.80   |
-| M40  | 8.10-8.35   | 669.10-700.10  | 995.10-1035.10  |
-| M45  | 8.10-8.35   | 735.10-785.10  | 1105.35-1146.00 |
+| M40  | 8.200-8.40   | 669.10-700.10  | 995.10-1035.10  |
+| M45  | 8.200-8.40   | 735.10-785.10  | 1105.35-1146.00 |
 
 ### Mortar Mixes
 
@@ -106,27 +129,6 @@ Strength_7d_1: 293.09, Strength_7d_2: 287.64, Strength_7d_3: 303.00
 Strength_28d_1: 464.85, Strength_28d_2: 447.39, Strength_28d_3: 468.82
 ```
 
-## Converting to Executable (.exe)
-
-### Using PyInstaller
-
-```bash
-# Method 1: Using the build script
-python build_exe.py
-
-# Method 2: Direct PyInstaller command
-pyinstaller --onefile data_generator.py
-```
-
-The executable will be created in the `dist/` folder.
-
-### Distribution
-
-For Windows distribution, you can:
-1. Run `build_exe.py` to generate the executable
-2. Share the `dist/DataGenerator.exe` file
-3. Users can run it directly without needing Python installed
-
 ## Customization
 
 You can modify the data ranges in the `data_generator.py` file:
@@ -152,8 +154,6 @@ strength_7d_ranges = {
 **Issue:** Files not generating
 - **Solution:** Ensure the `generated_data/` folder exists (created automatically) and you have write permissions
 
-**Issue:** PyInstaller not found
-- **Solution:** Run `pip install pyinstaller`
 
 ## Requirements
 

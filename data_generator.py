@@ -87,14 +87,17 @@ def generate_concrete_data(mix_type, num_rows=1000):
         # Generate weight values (6 different values)
         weight_min, weight_max = weight_ranges[mix_type]
         weights = generate_unique_values(weight_min, weight_max, 6, decimals=3, min_gap=0.015)
+        np.random.shuffle(weights)
         
-        # Generate 7-day strength values (3 different values) - WITH MORE SPACING
+        # Generate 7-day strength values (3 different values)
         str_7d_min, str_7d_max = strength_7d_ranges[mix_type]
-        strength_7d = generate_unique_values(str_7d_min, str_7d_max, 3, decimals=2, spacing=True)
+        strength_7d = generate_unique_values(str_7d_min, str_7d_max, 3, decimals=2, min_gap=5.0)
+        np.random.shuffle(strength_7d)
         
-        # Generate 28-day strength values (3 different values) - WITH MORE SPACING
+        # Generate 28-day strength values (3 different values)
         str_28d_min, str_28d_max = strength_28d_ranges[mix_type]
-        strength_28d = generate_unique_values(str_28d_min, str_28d_max, 3, decimals=2, spacing=True)
+        strength_28d = generate_unique_values(str_28d_min, str_28d_max, 3, decimals=2, min_gap=5.0)
+        np.random.shuffle(strength_28d)
         
         # Row: Sn + Weights + Empty Column + Strengths
         row = [sn] + weights + [None] + strength_7d + strength_28d
@@ -128,12 +131,15 @@ def generate_mortar_data(mortar_type, num_rows=1000):
         
         # Generate weight values (6 different values)
         weights = generate_unique_values(weight_range[0], weight_range[1], 6, decimals=3)
+        np.random.shuffle(weights)
         
-        # Generate 7-day strength values (3 different values) - WITH MORE SPACING
-        strength_7d = generate_unique_values(strength_7d_range[0], strength_7d_range[1], 3, decimals=2, spacing=True)
+        # Generate 7-day strength values (3 different values)
+        strength_7d = generate_unique_values(strength_7d_range[0], strength_7d_range[1], 3, decimals=2, min_gap=1.0)
+        np.random.shuffle(strength_7d)
         
-        # Generate 28-day strength values (3 different values) - WITH MORE SPACING
-        strength_28d = generate_unique_values(strength_28d_range[0], strength_28d_range[1], 3, decimals=2, spacing=True)
+        # Generate 28-day strength values (3 different values)
+        strength_28d = generate_unique_values(strength_28d_range[0], strength_28d_range[1], 3, decimals=2, min_gap=1.0)
+        np.random.shuffle(strength_28d)
         
         # Row: Sn + Weights + Empty Column + Strengths
         row = [sn] + weights + [None] + strength_7d + strength_28d

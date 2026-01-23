@@ -1,6 +1,7 @@
 # Generated data files (large, regeneratable)
 generated_data/
 *.xlsx
+*.zip
 
 # Build artifacts
 build/

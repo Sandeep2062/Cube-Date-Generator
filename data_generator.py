@@ -203,11 +203,11 @@ def main():
             
             print(f"\nGenerating Mortar 1:4 data ({num_rows} rows)...")
             df_14 = generate_mortar_data('1:4', num_rows=num_rows)
-            save_excel(df_14, "1_4.xlsx")
+            save_excel(df_14, "Mortar_1_4.xlsx")
             
             print(f"Generating Mortar 1:6 data ({num_rows} rows)...")
             df_16 = generate_mortar_data('1:6', num_rows=num_rows)
-            save_excel(df_16, "1_6.xlsx")
+            save_excel(df_16, "Mortar_1_6.xlsx")
             
             print("\n✓ Mortar data generated successfully!")
         
